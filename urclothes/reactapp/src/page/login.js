@@ -72,13 +72,13 @@ export default function login() {
                         title='Google' 
                         onClick={handleClick} 
                         styles={googleBtnStyle}
-                        icons={<FcGoogle />}
+                        iconLeft={<FcGoogle />}
                         />
                     <Boton 
                         title='Facebook' 
                         onClick={handleFacebook}
                         styles={facebookBtnStyle}
-                        icons={<BsFacebook />}
+                        iconLeft={<BsFacebook />}
                         />
                 </div>
             </Form>

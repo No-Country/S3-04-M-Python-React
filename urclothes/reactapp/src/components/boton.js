@@ -1,24 +1,30 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-export default function Boton({title, onClick, styles, icons}) {
+export default function Boton({title, onClick, styles, iconLeft, iconRight}) {
 
-  const icon = {
-    display: 'none'
-  }
+  // const icon = {
+  //   display: 'none'
+  // }
 
   return (
         <Button 
           onClick={onClick} 
-          style={styles}
+          style={{padding: '12px', borderRadius: '5px', ...styles}}
         >
-          {icons !== undefined ?  
+          {iconLeft !== undefined ?  
             <span style={{paddingRight: 10}}>
-                {icons} 
+                {iconLeft} 
             </span> : null
           }
             
             {title}
+
+            {iconRight !== undefined ?  
+            <span style={{paddingLeft: 10}}>
+                {iconRight} 
+            </span> : null
+          }
           
         </Button>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 
 import BtnGroup from './btnGroup';
+import RatingStar from './ratingStars';
 
 export default function tarjeta() {
 
@@ -44,9 +45,9 @@ export default function tarjeta() {
                 <Card.Text>
                     {card.description}
                 </Card.Text>
-                <Card.Text className="text-center">
+                <Card.Text className="text-center mt-5">
                     {/* Poner Estrellas Ranking Aca */}
-                    <BtnGroup />
+                    <RatingStar />
                 </Card.Text>
                 <Card.Text className="text-center">
                     <BtnGroup />

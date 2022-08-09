@@ -30,6 +30,10 @@ body, html {
   height: 22rem;
 }
 
+.card-img {
+  filter: saturate(0.5);
+}
+
 
 /* Gradient animado */
 .css-selector {
