@@ -6,6 +6,8 @@ import { BsFacebook } from 'react-icons/bs';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import logo from '../assets/logo.png';
+import { Link } from 'react-router-dom';
+import { LOGIN } from '../config/routes/path';
 
 export default function Registro() {
 
@@ -46,7 +48,7 @@ export default function Registro() {
                 <img src={logo} alt="UrClothes logo" style={{width: '100px'}}/>
             </div>
             <h3 className='text-center'>
-                Bienvenido Favor Registrate
+                Bienvenido a UrClothes
             </h3>
             <Form className="form-lr mb-4">
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -61,12 +63,15 @@ export default function Registro() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="mb-3" controlId="formConfirmPassword">
                     <Form.Label>Comprobar Password</Form.Label>
                     <Form.Control type="password" placeholder="Comprobar Password" />
                 </Form.Group>
+                <Link to={LOGIN} className="mb-3">
+                    Tenes una cuenta? Inicia sesión
+                </Link>
                 
-                <Button variant="primary" type="submit" size="lg" style={{width: '100%', marginBottom: '10px'}}>
+                <Button variant="primary" type="submit" size="lg" style={{width: '100%', marginBottom: '10px', marginTop: '5px'}}>
                     Registrarse
                 </Button>
                 <div className=" d-flex justify-content-around">

@@ -2,19 +2,26 @@ import React from 'react';
 import Boton from '../components/boton';
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import logo from '../assets/logo.png';
+import { useAuthContext } from '../contexts/authContext';
+import {REGISTER} from '../config/routes/path';
 
-export default function login() {
+export default function Login() {
+    const {login} = useAuthContext();
 
     const handleClick =() => {
-        alert('login fire up');
+        login()
     }
 
     const handleFacebook = () => {
         alert('facebook fire up');
+        login()
     }
 
     const googleBtnStyle = {
@@ -61,11 +68,20 @@ export default function login() {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
+                <Row>
+                    <Form.Label column lg={6}>
+                        <Link to={REGISTER}>
+                            Aun sin cuenta?
+                        </Link>
+                    </Form.Label>
+                <Col>
+                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Check me out" />
+                    </Form.Group>
+                </Col>
+                </Row>
                 <Button variant="primary" type="submit" size="lg" style={{width: '100%', marginBottom: '10px'}}>
-                    Submit
+                    Entrar
                 </Button>
                 <div className=" d-flex justify-content-around">
                     <Boton 
