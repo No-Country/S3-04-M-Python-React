@@ -39,7 +39,7 @@ export default function tarjeta() {
         {tarjetaStock.map(card => (    
         
             <Card className="text-white cardComponent mb-2" key={card.id}>
-            <Card.Img src={card.img} alt="Card image" />
+            <Card.Img src={card.img} alt="Card image" style={{filter: "brightness(65%)"}} />
             <Card.ImgOverlay>
                 <Card.Title className='text-end'>{card.nombre}</Card.Title>
                 <Card.Text>

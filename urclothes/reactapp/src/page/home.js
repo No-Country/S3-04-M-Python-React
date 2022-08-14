@@ -1,6 +1,6 @@
 import React from 'react';
 import Tarjeta from '../components/tarjeta';
-
+import MapaGoogle from '../components/mapaGoogle';
 
 const Home = () => {
     return (
@@ -12,6 +12,7 @@ const Home = () => {
                 </div>
                 <div className='col-md-4'>
                     <h2>Mapa</h2>
+                    <MapaGoogle />
                 </div>
             </div>
         </div>
