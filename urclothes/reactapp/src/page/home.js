@@ -3,6 +3,7 @@ import Tarjeta from '../components/tarjeta';
 import MapaGoogle from '../components/mapaGoogle';
 import Boton from '../components/boton';
 import  {useAuthContext}  from '../contexts/authContext';
+import Navbar from '../components/navbar';
 
 
 export default function Home() {
@@ -26,6 +27,8 @@ export default function Home() {
         <div className='container'>
             <div className='row'>
                 <div className='col-md-8'>
+                    
+
                     <h1>Home</h1>
                     <Boton 
                         title='Logout' 
