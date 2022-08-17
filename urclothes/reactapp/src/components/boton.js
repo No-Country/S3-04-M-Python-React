@@ -9,7 +9,7 @@ export default function Boton({title, onClick, styles, iconLeft, iconRight}) {
 
   return (
         <Button 
-          onClick={onClick} 
+          // onClick={onClick} 
           style={{padding: '12px', borderRadius: '5px', ...styles}}
         >
           {iconLeft !== undefined ?  
