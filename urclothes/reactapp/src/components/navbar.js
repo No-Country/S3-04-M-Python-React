@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png';
 
 
-export const navbar = () => {
+export const Navbar = () => {
   return (
-    <div>
+    
 
 
       
-<nav className="navbar bg-light fixed-top">
+<nav className="navbar sticky-top bg-light">
   <div className="container-fluid">
-    <Link className="navbar-brand" to="#"> 
-    <img src={logo} alt="UrClothes logo" style={{width: '70px'}}/>
+    <Link className="navbar-brand" to="/home"> 
+    <img src={logo} alt="UrClothes logo" style={{width: '60px'}}/>
     </Link>
 
     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -20,26 +20,30 @@ export const navbar = () => {
     </button>
     <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div className="offcanvas-header">
-        <h5 className="offcanvas-title" id="offcanvasNavbarLabel">UrClothes</h5>
+        <div className='d-flex align-items-center'>
+          <img src={logo} alt="UrClothes logo" style={{width: '50px', marginRight:'8px'}}/>
+          <h5 className="offcanvas-title" id="offcanvasNavbarLabel">UrClothes</h5>
+        </div>
+               
         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div className="offcanvas-body">
-        <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <ul className="navbar-nav justify-content-end flex-grow-1 pe-3 mb-2">
           <li className="nav-item">
 
 
-            <Link className="nav-link active" aria-current="page" to="#">Home</Link>
+            <Link className="nav-link fs-4" aria-current="page" to="#">Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="#">Mis matchs</Link>
+            <Link className="nav-link fs-4" to="#">Matches</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="#">Perfil</Link>
+            <Link className="nav-link fs-4" to="#">Perfil</Link>
           </li>
           
         </ul>
         <form className="d-flex" role="search">
-          <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <input className="search-form me-2" type="search" placeholder="Search" aria-label="Search"/>
           <button className="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
@@ -47,8 +51,8 @@ export const navbar = () => {
   </div>
 </nav>
         
-    </div>
+    
   )
 }
 
-export default navbar;
+export default Navbar;

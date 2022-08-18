@@ -38,20 +38,22 @@ export default function tarjeta() {
     <div className="d-flex justify-content-between flex-wrap">
         {tarjetaStock.map(card => (    
         
-            <Card className="text-white cardComponent mb-2" key={card.id}>
+            <Card className="text-white cardComponent mb-2" key={card.id} style={{width: "26.5%"}} >
             <Card.Img src={card.img} alt="Card image" style={{filter: "brightness(65%)"}} />
             <Card.ImgOverlay>
                 <Card.Title className='text-end'>{card.nombre}</Card.Title>
-                <Card.Text>
+                <div className='position-absolute bottom-0 mb-4' >
+                <Card.Text className='card-text'>
                     {card.description}
                 </Card.Text>
-                <Card.Text className="text-center mt-5">
+                <Card.Text className="text-center">
                     {/* Poner Estrellas Ranking Aca */}
                     <RatingStar />
                 </Card.Text>
                 <Card.Text className="text-center">
                     <BtnGroup />
                 </Card.Text>
+                </div>
             </Card.ImgOverlay>
             </Card>
        

@@ -38,7 +38,7 @@ useEffect(() => {
 
   return (
     <div>
-      <GoogleMap mapContainerStyle={{width: "100%", height: "90vh", borderRadius: "10px"}}
+      <GoogleMap mapContainerStyle={{width: "100%", height: "100vh", borderRadius: "10px"}}
       center={location}
       zoom={15}>
         <Marker

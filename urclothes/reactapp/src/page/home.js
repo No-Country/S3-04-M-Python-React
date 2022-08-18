@@ -24,12 +24,11 @@ export default function Home() {
         boxShadow: '2px 2px 6px 2px rgb(0 0 0 / 20%)',  
     }
     return (
-        <div className='container'>
-            <div className='row'>
-                <div className='col-md-8'>
-                    
-
-                    <h1>Home</h1>
+        <div className='container-fluid m-0 p-0'>
+            <Navbar/>
+            <div className='row m-0 mb-2 p-0'>
+                <div className='col-md-8 '>
+                 
                     <Boton 
                         title='Logout' 
                         onClick={handleLogout} 
@@ -37,7 +36,7 @@ export default function Home() {
                         />
                     <Tarjeta />
                 </div>
-                <div className='col-md-4'>
+                <div className='col-md-4 '>
                     <h2>Mapa</h2>
                     <MapaGoogle />
                 </div>
