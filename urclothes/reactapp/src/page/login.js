@@ -11,6 +11,7 @@ import Col from 'react-bootstrap/Col';
 import logo from '../assets/logo.png';
 import { useAuthContext } from '../contexts/authContext';
 import {REGISTER} from '../config/routes/path';
+import Navbar from '../components/navbar';
 
 export default function Login() {
     const {login} = useAuthContext();
@@ -52,6 +53,8 @@ export default function Login() {
             <div className="m-4 text-center">
                 <img src={logo} alt="UrClothes logo" style={{width: '100px'}}/>
             </div>
+            
+            
             <h3 className='text-center'>
                 Bienvenido de Regreso
             </h3>

@@ -19,7 +19,7 @@ export default function ratingStars() {
             onClick={e => {onClickRating(rating)}}
             key = {i}
             >
-            <AiOutlineStar />
+            <AiOutlineStar size={25} />
         </Button>
     ))}
 </ButtonGroup>
