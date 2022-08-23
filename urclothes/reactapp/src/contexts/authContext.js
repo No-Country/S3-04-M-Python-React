@@ -42,6 +42,10 @@ export function AuthContextProvider({children}) {
         // window.localStorage.setItem(uToken, true);
     }, []);
 
+    const loginFacebook = useCallback(function() {
+        setIsAuthenticated(true)
+    }, []);
+
     const logout = useCallback(function() {
         signOut(auth).then(() => {
             window.localStorage.removeItem(uToken);
@@ -61,8 +65,9 @@ export function AuthContextProvider({children}) {
             loginGoogle, 
             logout,
             isAuthenticated,
-            userName
-        }),[ loginGoogle, logout, isAuthenticated, userName]);
+            userName,
+            loginFacebook
+        }),[ loginGoogle, logout, isAuthenticated, userName, loginFacebook]);
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

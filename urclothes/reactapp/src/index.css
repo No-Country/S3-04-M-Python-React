@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.search-form{
+  outline: none;
+  width: 80%;
+  
+  padding-left: 10px;
+}

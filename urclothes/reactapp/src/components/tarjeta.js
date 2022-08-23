@@ -119,32 +119,31 @@ const bn = window.brain
 
   return (
     <div className="d-flex justify-content-between flex-wrap">
-        {store.map(card => (    
-        
-            <Card className="text-white cardComponent mb-2" key={card.id}>
-            <Card.Img src={card.displayingInformation.imageFile} alt="Card image" />
-            <Card.ImgOverlay style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-                <Card.Title className='text-end'>{card.displayingInformation.title}</Card.Title>
-                <Card.Text>
+        {store.map((card, i) => ( 
+            <Card className="text-white cardComponent mb-2" key={i}>
+              <Card.Img src={card.displayingInformation.imageFile} alt={card.name} />
+              <Card.ImgOverlay style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+                  <Card.Title className="text-end">
+                    {card.displayingInformation.title}
+                  </Card.Title>
+                  <Card.Text>
                     {card.description}
-                </Card.Text>
-                <Card.Text className="text-center mb-2" 
-                  style={{
-                    display: 'flex',
-                    marginBottom: '0px',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    height: '80px'
-                  }}>
-                    {/* Poner Estrellas Ranking Aca */}
-                    <RatingStar onClickRating={nextTry}/>
-                
-                    <BtnGroup rating={formatAsPercent(card.wanted)}/>
-                </Card.Text>
-            </Card.ImgOverlay>
+                  </Card.Text>
+                  <Card.Text className="text-center mb-2" 
+                    style={{
+                      display: 'flex',
+                      marginBottom: '0px',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      height: '80px'
+                    }}>
+                        <RatingStar onClickRating={nextTry}/>                
+                        <BtnGroup rating={formatAsPercent(card.wanted)}/>                        
+                    </Card.Text>
+              </Card.ImgOverlay>
             </Card>
-       
         ))}
     </div>    
   )
 }
+

@@ -13,16 +13,11 @@ import { useAuthContext } from '../contexts/authContext';
 import {REGISTER} from '../config/routes/path';
 
 export default function Login() {
-    const {loginGoogle } = useAuthContext();
+    const {loginGoogle, loginFacebook } = useAuthContext();
 
-    const handleClick =() => {
-        loginGoogle()
-    }
+    
 
-    const handleFacebook = () => {
-        alert('facebook fire up');
-        loginGoogle()
-    }
+    
 
     const googleBtnStyle = {
         backgroundColor: 'rgb(255, 255, 255)',
@@ -52,6 +47,8 @@ export default function Login() {
             <div className="m-4 text-center">
                 <img src={logo} alt="UrClothes logo" style={{width: '100px'}}/>
             </div>
+            
+            
             <h3 className='text-center'>
                 Bienvenido de Regreso
             </h3>
@@ -86,13 +83,13 @@ export default function Login() {
                 <div className=" d-flex justify-content-around">
                     <Boton 
                         title='Google' 
-                        onClick={handleClick} 
+                        onClick={loginGoogle()} 
                         styles={googleBtnStyle}
                         iconLeft={<FcGoogle />}
                         />
                     <Boton 
                         title='Facebook' 
-                        onClick={handleFacebook}
+                        onClick={loginFacebook()}
                         styles={facebookBtnStyle}
                         iconLeft={<BsFacebook />}
                         />

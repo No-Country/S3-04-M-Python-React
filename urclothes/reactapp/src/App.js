@@ -5,9 +5,10 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './page/home';
 import Login from './page/login';
 import Register from './page/register';
+import Questions from './page/preguntas';
 
 //importing Routes
-import {REGISTER, HOME } from './config/routes/path';
+import {REGISTER, HOME, QUESTIONS } from './config/routes/path';
 
 import PublicRoute from './components/router/PublicRouter';
 import PrivateRoute from './components/router/PrivateRoute';
@@ -15,9 +16,11 @@ import PrivateRoute from './components/router/PrivateRoute';
 function App() {
   return (
     <Routes>
+      
       <Route path='/' element={<PublicRoute/>}>
         <Route index element={<Login />} />
         <Route path={REGISTER} element={<Register />} />
+        <Route path={QUESTIONS} element={<Questions />} />
       </Route>
       {/* Ruta Privada */}
       <Route path={HOME} element={<PrivateRoute />}>
