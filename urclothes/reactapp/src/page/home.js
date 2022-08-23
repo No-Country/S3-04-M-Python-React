@@ -6,7 +6,7 @@ import  {useAuthContext}  from '../contexts/authContext';
 
 export default function Home() {
     
-    const {logout} = useAuthContext();
+    const {logout, userName} = useAuthContext();
 
     const handleLogout = () => {
         logout();
@@ -25,7 +25,7 @@ export default function Home() {
         <div className='container'>
             <div className='row'>
                 <div className='col-md-8'>
-                    <h1>Home</h1>
+                    <h1>{userName}</h1>
                     <Boton 
                         title='Logout' 
                         onClick={handleLogout} 

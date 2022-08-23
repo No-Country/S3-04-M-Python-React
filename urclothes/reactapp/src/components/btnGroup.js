@@ -6,11 +6,10 @@ import {BsFillMapFill} from 'react-icons/bs';
 import {AiOutlineHeart , AiFillHeart} from 'react-icons/ai';
 import {BsFillGearFill} from 'react-icons/bs'
 
-export default function BtnGroup({stylesMap, stylesHeart, stylesGear, onClickMap, onClickHeart, onClickGear}) {
+export default function BtnGroup({stylesMap, stylesHeart, stylesGear, onClickMap, onClickHeart, onClickGear, rating}) {
 
     // manejar estado con useState
     const heart = false;
-    const porcentaje = '96%'
 
     
 
@@ -40,7 +39,7 @@ export default function BtnGroup({stylesMap, stylesHeart, stylesGear, onClickMap
             style={{color: '#0b5ed7', backgroundColor: '#FFFFFF', borderColor: '#fff',...stylesGear}}
             onClick={onClickGear}
             >
-            <BsFillGearFill /> {' '}{porcentaje}
+            <BsFillGearFill /> {' '}{rating}
         </Button>
     </ButtonGroup>
   )

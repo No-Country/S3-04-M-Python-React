@@ -13,15 +13,15 @@ import { useAuthContext } from '../contexts/authContext';
 import {REGISTER} from '../config/routes/path';
 
 export default function Login() {
-    const {login} = useAuthContext();
+    const {loginGoogle } = useAuthContext();
 
     const handleClick =() => {
-        login()
+        loginGoogle()
     }
 
     const handleFacebook = () => {
         alert('facebook fire up');
-        login()
+        loginGoogle()
     }
 
     const googleBtnStyle = {

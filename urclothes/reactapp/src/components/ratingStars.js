@@ -4,24 +4,50 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import {AiFillStar} from 'react-icons/ai';
 import {AiOutlineStar} from 'react-icons/ai';
 
-export default function ratingStars() {
-    const ratings = [1,2,3,4,5];
+export default function ratingStars({onClickRating}) {
+    const ratings = [0,1,2,3,4];
 
-    const onClickRating = (e) => {
-        alert(e)
-    }
+    
 
   return (
     <ButtonGroup aria-label="Basic example">
-    {ratings.map((rating, i) => (
+    
         <Button 
             style={{color: '#FDA21A', backgroundColor: '#FFFFFF', borderColor: '#fff'}}
-            onClick={e => {onClickRating(rating)}}
-            key = {i}
+            onClick={e => {onClickRating(1)}}
+            key = {0}
             >
             <AiOutlineStar />
         </Button>
-    ))}
+        <Button 
+            style={{color: '#FDA21A', backgroundColor: '#FFFFFF', borderColor: '#fff'}}
+            onClick={e => {onClickRating(2)}}
+            key = {1}
+            >
+            <AiOutlineStar />
+        </Button>
+        <Button 
+            style={{color: '#FDA21A', backgroundColor: '#FFFFFF', borderColor: '#fff'}}
+            onClick={e => {onClickRating(3)}}
+            key = {2}
+            >
+            <AiOutlineStar />
+        </Button>
+        <Button 
+            style={{color: '#FDA21A', backgroundColor: '#FFFFFF', borderColor: '#fff'}}
+            onClick={e => {onClickRating(4)}}
+            key = {3}
+            >
+            <AiOutlineStar />
+        </Button>
+        <Button 
+            style={{color: '#FDA21A', backgroundColor: '#FFFFFF', borderColor: '#fff'}}
+            onClick={e => {onClickRating(5)}}
+            key = {4}
+            >
+            <AiOutlineStar />
+        </Button>
+    
 </ButtonGroup>
   )
 }
