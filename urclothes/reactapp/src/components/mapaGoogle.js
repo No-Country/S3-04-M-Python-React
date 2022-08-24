@@ -16,38 +16,36 @@ export default function MapaGoogle() {
  
 useEffect(() => {
  
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function showPosition(position){
-        setLocation({lat: position.coords.latitude, lng:position.coords.longitude})}, function(error) {
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function showPosition(position){
+          setLocation({lat: position.coords.latitude, lng:position.coords.longitude})}, function(error) {
 
-        console.error("Error Code = " + error.code + " - " + error.message);
+          console.error("Error Code = " + error.code + " - " + error.message);
 
-      });
+        });
+      }
+    
     }
-  
-  }
 
   getLocation();
+    async function calculateRoute() {
+    
+      // eslint-disable-next-line no-undef
+      const directionsService = new google.maps.DirectionsService()
+      const results = await directionsService.route({
+        origin: location,
+        destination: {
+          lat:  10.502219280479151, 
+          lng: -66.90413403673223},
+        // eslint-disable-next-line no-undef
+        travelMode: google.maps.TravelMode.DRIVING,
+      })
+      setDestiny(results)
 
-   
- async function calculateRoute() {
- 
-  // eslint-disable-next-line no-undef
-  const directionsService = new google.maps.DirectionsService()
-  const results = await directionsService.route({
-    origin: location,
-    destination: {
-      lat:  10.502219280479151, 
-      lng: -66.90413403673223},
-    // eslint-disable-next-line no-undef
-    travelMode: google.maps.TravelMode.DRIVING,
-  })
-  setDestiny(results)
+    }
 
-}
-
-calculateRoute();
+    calculateRoute();
 
 
  },[])

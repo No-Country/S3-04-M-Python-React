@@ -8,11 +8,13 @@ import Form from 'react-bootstrap/Form';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../config/routes/path';
+import { useAuthContext } from '../contexts/authContext';
 
 export default function Registro() {
+    const {loginGoogle} = useAuthContext();
 
     const handleClick =() => {
-        alert('Registro Google fire up');
+        loginGoogle()
     }
 
     const handleFacebook = () => {

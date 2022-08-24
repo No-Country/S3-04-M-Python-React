@@ -1,27 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import {AiFillStar} from 'react-icons/ai';
-import {AiOutlineStar} from 'react-icons/ai';
 
-export default function ratingStars() {
+export default function RatingStars({onClickRating}) {
     const ratings = [1,2,3,4,5];
 
-    const onClickRating = (e) => {
-        alert(e)
-    }
+    const [rate, setRate] = useState(null);
+    const [hover, setHover] = useState(null);
+    
 
   return (
     <ButtonGroup aria-label="Basic example">
-    {ratings.map((rating, i) => (
+      {ratings.map((rating, i) => {
+        const ratingValue = i + 1;
+        return (
         <Button 
             style={{color: '#FDA21A', backgroundColor: '#FFFFFF', borderColor: '#fff'}}
-            onClick={e => {onClickRating(rating)}}
+            onClick={e => {onClickRating(e); setRate(ratingValue)}}
             key = {i}
             >
-            <AiOutlineStar size={25} />
+            <AiFillStar color={ratingValue <= (hover || rate) ? '#FDA21A' : "#ccc"} 
+              onMouseEnter = {() => setHover(ratingValue)}
+              onMouseLeave = {() => setHover(null)}
+            />
         </Button>
-    ))}
+        );
+      })}
+       
+    
 </ButtonGroup>
   )
 }

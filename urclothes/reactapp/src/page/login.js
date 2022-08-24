@@ -11,19 +11,13 @@ import Col from 'react-bootstrap/Col';
 import logo from '../assets/logo.png';
 import { useAuthContext } from '../contexts/authContext';
 import {REGISTER} from '../config/routes/path';
-import Navbar from '../components/navbar';
 
 export default function Login() {
-    const {login} = useAuthContext();
+    const {loginGoogle, loginFacebook } = useAuthContext();
 
-    const handleClick =() => {
-        login()
-    }
+    
 
-    const handleFacebook = () => {
-        alert('facebook fire up');
-        login()
-    }
+    
 
     const googleBtnStyle = {
         backgroundColor: 'rgb(255, 255, 255)',
@@ -89,13 +83,13 @@ export default function Login() {
                 <div className=" d-flex justify-content-around">
                     <Boton 
                         title='Google' 
-                        onClick={handleClick} 
+                        onClick={loginGoogle()} 
                         styles={googleBtnStyle}
                         iconLeft={<FcGoogle />}
                         />
                     <Boton 
                         title='Facebook' 
-                        onClick={handleFacebook}
+                        onClick={loginFacebook()}
                         styles={facebookBtnStyle}
                         iconLeft={<BsFacebook />}
                         />

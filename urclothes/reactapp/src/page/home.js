@@ -8,7 +8,7 @@ import Navbar from '../components/navbar';
 
 export default function Home() {
     
-    const {logout} = useAuthContext();
+    const {logout, userName} = useAuthContext();
 
     const handleLogout = () => {
         logout();
@@ -24,23 +24,25 @@ export default function Home() {
         boxShadow: '2px 2px 6px 2px rgb(0 0 0 / 20%)',  
     }
     return (
-        <div className='container-fluid m-0 p-0'>
-            <Navbar/>
-            <div className='row m-0 mb-2 p-0'>
-                <div className='col-md-8 '>
-                 
-                    <Boton 
-                        title='Logout' 
-                        onClick={handleLogout} 
-                        styles={BtnStyle}
+        <div className="container-fluid">
+            <Navbar />
+            <div className="container">
+                <div className='row'>
+                    <div className="col-md-8">                
+                        <h1>{userName}</h1>
+                        <Boton 
+                            title='Logout' 
+                            onClick={handleLogout} 
+                            styles={BtnStyle}
                         />
-                    <Tarjeta />
-                </div>
-                <div className='col-md-4 '>
-                    <h2>Mapa</h2>
-                    <MapaGoogle />
+                        <Tarjeta />
+                    </div>
+                    <div className="col-md-4">
+                        <MapaGoogle />
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
+
