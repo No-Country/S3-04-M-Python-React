@@ -6,7 +6,7 @@ import {BsFillMapFill} from 'react-icons/bs';
 import {AiOutlineHeart , AiFillHeart} from 'react-icons/ai';
 import {BsFillGearFill} from 'react-icons/bs'
 
-import useClothesContext from '../contexts/appProvider';
+import useClothesContext from '../contexts/AppProvider';
 
 export default function BtnGroup({stylesMap, stylesHeart, stylesGear, onClickHeart, onClickGear, rating}) {
 
