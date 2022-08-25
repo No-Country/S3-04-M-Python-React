@@ -118,7 +118,7 @@ const bn = window.brain
     }
 
   return (
-    <div className="d-flex justify-content-between flex-wrap">
+    <div className="d-flex justify-content-sm-between justify-content-center  flex-wrap">
         {store.map((card, i) => ( 
             <Card className="text-white cardComponent mb-2" key={i}>
               <Card.Img src={card.displayingInformation.imageFile} alt={card.name} />

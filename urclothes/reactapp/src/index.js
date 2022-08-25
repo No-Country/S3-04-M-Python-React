@@ -8,10 +8,12 @@ import {AuthContextProvider} from './contexts/authContext';
 import { Auth0Provider } from '@auth0/auth0-react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ClothesProvider } from './contexts/AppProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+
     <AuthContextProvider>
       <BrowserRouter>
         <Auth0Provider
@@ -19,7 +21,9 @@ root.render(
             clientId="lWpX1ARyIi5qkU5FZhU3V72tVIJia62X"
             redirectUri={window.location.origin}
             >
-          <App />
+          <ClothesProvider>
+            <App />
+          </ClothesProvider>
         </Auth0Provider>
       </BrowserRouter>
     </AuthContextProvider>
