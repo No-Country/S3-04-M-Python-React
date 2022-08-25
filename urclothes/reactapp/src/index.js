@@ -15,17 +15,19 @@ root.render(
   <React.StrictMode>
 
     <AuthContextProvider>
+    <ClothesProvider>
       <BrowserRouter>
         <Auth0Provider
             domain="rapahael.auth0.com"
             clientId="lWpX1ARyIi5qkU5FZhU3V72tVIJia62X"
             redirectUri={window.location.origin}
             >
-          <ClothesProvider>
+          
             <App />
-          </ClothesProvider>
+          
         </Auth0Provider>
       </BrowserRouter>
+   </ClothesProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );

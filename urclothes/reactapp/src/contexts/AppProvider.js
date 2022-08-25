@@ -8,10 +8,6 @@ const initialState = {
 
 const ClothesContext = createContext(initialState);
 
-export const useClothesContext = () => {
-    return useContext(ClothesProvider);
-}
-
 const clothesReducer = (state, action) => {
     const { type, value} = action;
     switch (type) {
@@ -53,3 +49,6 @@ export const ClothesProvider = ({children}) => {
     )
 }
 
+export default function useClothesContext () {
+    return useContext(ClothesProvider);
+}
