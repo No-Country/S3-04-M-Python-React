@@ -16,9 +16,9 @@ export default function BtnGroup({stylesMap, stylesHeart, stylesGear, onClickHea
     const heart = false;
 
     const onClickMap = () => {
-        dispatch({type:'SET_LAT', value: 10.502219280479151});
-        dispatch({type:'SET_LNG', value: -66.90413403673223});
-        dispatch({type:'SET_SHOW_DESTINY', value: !showDestiny})
+        dispatch({type:"SET_LAT", value: 10.502219280479151});
+        dispatch({type:"SET_LNG", value: -66.90413403673223});
+       
     }
 
 

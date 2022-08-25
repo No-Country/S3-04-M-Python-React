@@ -38,7 +38,7 @@ export default function Home() {
                         <Tarjeta />
                     </div>
                     <div className="d-none d-lg-block col-md-4">
-                        <MapaGoogle />
+                         <MapaGoogle /> 
                     </div>
                 </div>
             </div>
