@@ -6,22 +6,21 @@ import {BsFillMapFill} from 'react-icons/bs';
 import {AiOutlineHeart , AiFillHeart} from 'react-icons/ai';
 import {BsFillGearFill} from 'react-icons/bs'
 
-/*import useClothesContext from '../contexts/AppProvider';*/
+import {useClothesContext} from '../contexts/AppProvider';
 
-export default function BtnGroup({stylesMap, stylesHeart, stylesGear, onClickHeart, onClickMap, onClickGear, rating}) {
+export default function BtnGroup({stylesMap, stylesHeart, stylesGear, onClickHeart, /*onClickMap,*/ onClickGear, rating}) {
 
 
-/*    const {dispatch, showDestiny, longitud, latitud} = useClothesContext();
+const {dispatch, showDestiny, longitud, latitud} = useClothesContext();
     // manejar estado con useState
-  */  const heart = false;
-/*
+const heart = false;
+
     const onClickMap = () => {
         dispatch({type:"SET_LAT", value: 10.502219280479151});
         dispatch({type:"SET_LNG", value: -66.90413403673223});
+        dispatch({type:"SET_SHOW_DESTINY", value: !showDestiny});
        
     }
-*/
-
 
   return (
     <ButtonGroup aria-label="Basic example">

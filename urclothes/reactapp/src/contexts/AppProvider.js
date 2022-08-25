@@ -8,6 +8,11 @@ const initialState = {
 
 const ClothesContext = createContext(initialState);
 
+export const useClothesContext = () => {
+    const context = useContext(ClothesContext);
+    return context;
+}
+
 const clothesReducer = (state, action) => {
     const { type, value} = action;
     switch (type) {
@@ -28,17 +33,17 @@ const clothesReducer = (state, action) => {
                 showDestiny: value
             };
         default: 
-        throw new Error(`No case for type ${type}`);     
-            
+        return state; 
     }
         
 
 }
 
 export const ClothesProvider = ({children}) => {
-    const [state, dispatch] = useReducer(initialState, clothesReducer);
+    const [state, dispatch] = useReducer(clothesReducer, initialState);
 
     const values = {
+        dispatch,
         latitud: state.latitud,
         longitud: state.longitud,
         showDestiny: state.showDestiny
@@ -49,6 +54,4 @@ export const ClothesProvider = ({children}) => {
     )
 }
 
-export default function useClothesContext () {
-    return useContext(ClothesProvider);
-}
+
