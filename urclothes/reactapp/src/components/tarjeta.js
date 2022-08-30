@@ -22,41 +22,40 @@ export default function Tarjeta() {
       setStore(data)
     }
   }, [data])
-  
-console.log(store)
-// console.log(window)
-// const ml = window.ml5;
-const bn = window.brain;
 
-// using axios to connect to api.
-const url = 'https://jsonplaceholder.typicode.com/albums/1/photos';
+  // console.log(window)
+  // const ml = window.ml5;
+  const bn = window.brain;
 
-const api = axios.create({
-  baseURL: url
-})
+  // using axios to connect to api.
+  const url = 'https://jsonplaceholder.typicode.com/albums/1/photos';
 
-useEffect(() => {
-  api.get('/').then( res => {
-    console.log(res)
+  const api = axios.create({
+    baseURL: url
   })
-}, [])
 
-// creating data 
-const createData = async () => {
-  let res = await api.post('/', { title: '', id: 4})
-}
+  useEffect(() => {
+    api.get('/').then( res => {
+      console.log(res)
+    })
+  }, [])
 
-// deleting data 
-const deleteData = async (id) => {
-  let del = await api.delete(`/${id}`);
-}
+  // creating data 
+  const createData = async () => {
+    let res = await api.post('/', { title: '', id: 4})
+  }
 
-//updateData
-const updateData = async (id, val) => {
-  let update = await api.patch(`/${id}`, {
-    title: val
-  })
-}
+  // deleting data 
+  const deleteData = async (id) => {
+    let del = await api.delete(`/${id}`);
+  }
+
+  //updateData
+  const updateData = async (id, val) => {
+    let update = await api.patch(`/${id}`, {
+      title: val
+    })
+  }
  
   //! Brainjs   
 
@@ -151,8 +150,8 @@ const updateData = async (id, val) => {
   return (
     <motion.div layout className="d-flex flex-wrap card-conteiner" >
         {/* framer motion  */}
-        {store.map((card, i) => ( 
-          
+      <div className="d-flex justify-content-sm-between justify-content-center  flex-wrap">
+        {store.map((card, i) => (           
             <Card className="text-white cardComponent mb-2" key={i}>
               <Card.Img src={card.displayingInformation.imageFile} alt={card.displayingInformation.title} />
               <Card.ImgOverlay style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
@@ -174,9 +173,9 @@ const updateData = async (id, val) => {
                         <BtnGroup rating={formatAsPercent(card.wanted)} />                        
                     </div>
               </Card.ImgOverlay>
-            </Card>
-                    
+            </Card>                    
         ))}
+      </div>
     </motion.div>    
   )
 }

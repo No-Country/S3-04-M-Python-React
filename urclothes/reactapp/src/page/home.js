@@ -11,16 +11,21 @@ export default function Home() {
 
   
     return (
-        <div className="container-fluid">
+        <div className="container-fluid p-0">
             <Navbar />
             <div className="container">
                 <div className='row'>
-                    <div className="col-md-8">                
+                    <div className="col-lg-8">                
                         <h1>Bienvenido {userName}</h1>
+                        <Boton 
+                            title='Logout' 
+                            onClick={handleLogout} 
+                            styles={BtnStyle}
+                        />
                         <Tarjeta />
                     </div>
-                    <div className="col-md-4">
-                        <MapaGoogle />
+                    <div className="d-none d-lg-block col-md-4">
+                         <MapaGoogle /> 
                     </div>
                 </div>
             </div>

@@ -13,6 +13,7 @@ import {REGISTER, HOME, QUESTIONS } from './config/routes/path';
 import PublicRoute from './components/router/PublicRouter';
 import PrivateRoute from './components/router/PrivateRoute';
 
+
 function App() {
   return (
     <Routes>
