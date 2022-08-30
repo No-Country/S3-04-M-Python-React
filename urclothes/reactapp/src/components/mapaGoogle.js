@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useJsApiLoader, GoogleMap, Marker, DirectionsRenderer} from "@react-google-maps/api"
 
 
-export default function MapaGoogle() {
+export default function MapaGoogle({style}) {
 
   
   const [location, setLocation] = useState({lat: null, lng: null});
@@ -38,7 +38,8 @@ useEffect(() => {
           lat:  10.502219280479151, 
           lng: -66.90413403673223},
         // eslint-disable-next-line no-undef
-        travelMode: google.maps.TravelMode.DRIVING,
+        // travelMode: google.maps.TravelMode.DRIVING,
+        // travelMode: DRIVING
       })
       setDestiny(results)
 
@@ -67,8 +68,9 @@ console.log(location, Destiny);
 
 
   return (
-    <div>
-      <GoogleMap mapContainerStyle={{width: "100%", height: "100vh", borderRadius: "10px"}}
+    <div className="mapa-google_dnone">
+      <GoogleMap 
+      mapContainerStyle={{width: "100%", height: "85vh", borderRadius: "10px", ...style}}
       center={location}
       zoom={15}>
         <Marker

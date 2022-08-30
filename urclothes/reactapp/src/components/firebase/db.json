@@ -1,0 +1,15 @@
+{
+    {
+        "trainingInformation": {
+          "color": "color_black",
+          "hasPrinting": 0,
+          "neckline": "neckline_round",
+          "price": 19.99,
+        },
+        "displayingInformation": {
+          "imageFile": "https://raw.githubusercontent.com/BrainJS/brain.js/master/examples/javascript/recommendation-engine/images/articles/cl_black_nl_circle_hp_false_prc_1999.jpg",
+          "title": "Rainbow Shirt",
+        },
+      },
+      
+}
