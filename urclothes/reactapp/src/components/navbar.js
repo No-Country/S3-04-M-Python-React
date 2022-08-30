@@ -1,24 +1,41 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png';
+import { useAuthContext } from '../contexts/authContext';
+import Boton from './boton';
 
 
 export const Navbar = () => {
-  return (
-    
+  const { logout, isAuthenticated } = useAuthContext();
 
+  const handleLogout = () => {
+    logout();
+    alert('Uhhhy me haz presionado..!')
+  }
 
-      
-<nav className="navbar sticky-top bg-light">
+const BtnStyle = {
+    backgroundColor: 'rgb(255, 255, 255)',
+    color: 'rgb(0, 0, 0 )',
+    borderRadius: '5px',
+    padding: '10px',
+    border: 'none',
+    margin: '5px',
+    boxShadow: '2px 2px 6px 2px rgb(0 0 0 / 20%)',  
+}
+
+  return (   
+<nav className="navbar sticky-top" style={{backgroundColor: 'white'}}>
   <div className="container-fluid">
     <Link className="navbar-brand" to="/home"> 
     <img src={logo} alt="UrClothes logo" style={{width: '60px'}}/>
     </Link>
 
-    <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+    <button className="navbar-toggler" type="button" 
+      data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" 
+      aria-controls="offcanvasNavbar" style={{border: 'none'}}>
       <span className="navbar-toggler-icon"></span>
     </button>
-    <div className="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div className="offcanvas-header">
         <div className='d-flex align-items-center'>
           <img src={logo} alt="UrClothes logo" style={{width: '50px', marginRight:'8px'}}/>
@@ -42,6 +59,12 @@ export const Navbar = () => {
           </li>
           
         </ul>
+        {!isAuthenticated ? null : 
+          <Boton 
+             title='Logout' 
+             onClick={handleLogout} 
+             styles={BtnStyle}
+          /> }
         <form className="d-flex" role="search">
           <input className="search-form me-2" type="search" placeholder="Search" aria-label="Search"/>
           <button className="btn btn-outline-success" type="submit">Search</button>

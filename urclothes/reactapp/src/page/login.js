@@ -15,9 +15,13 @@ import {REGISTER} from '../config/routes/path';
 export default function Login() {
     const {loginGoogle, loginFacebook } = useAuthContext();
 
-    
+    const handleGoogle = () => {
+        loginGoogle()       
+    }
 
-    
+    const handleFacebook = () => {
+        loginFacebook();
+    }
 
     const googleBtnStyle = {
         backgroundColor: 'rgb(255, 255, 255)',
@@ -83,13 +87,13 @@ export default function Login() {
                 <div className=" d-flex justify-content-around">
                     <Boton 
                         title='Google' 
-                        onClick={loginGoogle()} 
+                        onClick={handleGoogle} 
                         styles={googleBtnStyle}
                         iconLeft={<FcGoogle />}
                         />
                     <Boton 
                         title='Facebook' 
-                        onClick={loginFacebook()}
+                        onClick={handleFacebook}
                         styles={facebookBtnStyle}
                         iconLeft={<BsFacebook />}
                         />

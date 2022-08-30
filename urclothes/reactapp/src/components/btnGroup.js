@@ -30,20 +30,14 @@ const heart = false;
             >
             <BsFillMapFill />
         </Button>
-        { heart !== false  ?
-        <Button 
-            style={{color: '#de5b3e', backgroundColor: '#FFF', borderColor: '#fff',...stylesHeart}}
-            onClick={onClickHeart}
-            >
-            <AiFillHeart />
-        </Button> :
+        
         <Button 
             style={{color: '#de5b3e', backgroundColor: '#fff', borderColor: '#fff',...stylesHeart}}
             onClick={onClickHeart}
             >
             <AiOutlineHeart style={{borderColor: '#de5b3e'}}/>
         </Button> 
-        }
+        
         <Button 
             style={{color: '#0b5ed7', backgroundColor: '#FFFFFF', borderColor: '#fff',...stylesGear}}
             onClick={onClickGear}

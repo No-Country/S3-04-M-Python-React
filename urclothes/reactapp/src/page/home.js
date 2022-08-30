@@ -29,12 +29,8 @@ export default function Home() {
             <div className="container">
                 <div className='row'>
                     <div className="col-lg-8">                
-                        <h1>{userName}</h1>
-                        <Boton 
-                            title='Logout' 
-                            onClick={handleLogout} 
-                            styles={BtnStyle}
-                        />
+                        <h1>Bienvenido {userName}</h1>
+                       
                         <Tarjeta />
                     </div>
                     <div className="d-none d-lg-block col-md-4">
