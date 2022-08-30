@@ -38,7 +38,7 @@ export const Navbar = () => {
             <Link className="nav-link fs-4" to="#">Matches</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link fs-4" to="#">Perfil</Link>
+            <Link className="nav-link fs-4" to="/profile">Perfil</Link>
           </li>
           
         </ul>
