@@ -1,34 +1,62 @@
 import React, {useEffect, useState} from 'react'
 import Card from 'react-bootstrap/Card';
 
+
 import BtnGroup from './btnGroup';
 import RatingStar from './ratingStars';
 // import data from '../firebase/data';
 import data from './firebase/data';
+import axios from 'axios';
+
+
+// import framer motion
+import { Reorder, motion } from 'framer-motion';
 
 
 export default function Tarjeta() {
   const [store, setStore ] = useState([]);
+  const [order, setOrder ] = useState([...store]);
 
   useEffect(() => {
     return () => {
       setStore(data)
     }
   }, [data])
-  
-console.log(store)
-// console.log(window)
-// const ml = window.ml5;
-const bn = window.brain
 
-  
+  // console.log(window)
+  // const ml = window.ml5;
+  const bn = window.brain;
 
-    //! Funcion para obtener el rating del usuario
-    //? posible done different
-    //* comun comment
-    //TODO: improve this function
+  // using axios to connect to api.
+  const url = 'https://jsonplaceholder.typicode.com/albums/1/photos';
 
+  const api = axios.create({
+    baseURL: url
+  })
 
+  useEffect(() => {
+    api.get('/').then( res => {
+      console.log(res)
+    })
+  }, [])
+
+  // creating data 
+  const createData = async () => {
+    let res = await api.post('/', { title: '', id: 4})
+  }
+
+  // deleting data 
+  const deleteData = async (id) => {
+    let del = await api.delete(`/${id}`);
+  }
+
+  //updateData
+  const updateData = async (id, val) => {
+    let update = await api.patch(`/${id}`, {
+      title: val
+    })
+  }
+ 
   //! Brainjs   
 
     const color_black = 1;
@@ -86,17 +114,17 @@ const bn = window.brain
       
       const sorted = suggestionItems.sort((a,b) => b.wanted - a.wanted);
       setStore(sorted);
+      console.log(sorted)
       
       ratingItem = getNormalizedItemFromStock(
         Math.floor(Math.random() * data.length - 1 + 1)
-      );
-    }
-
+        );
+      }
+      
     function getNormalizedItemFromStock(index) {
       const item = data[index];
       const trainingInformation = item.trainingInformation;
     
-      console.log('training Information:', trainingInformation)
       return {
         trainingInformation: {
           color: trainingInformation.color / color_normalization_factor,
@@ -117,11 +145,15 @@ const bn = window.brain
       }).format((num * 10));
     }
 
+    
+
   return (
-    <div className="d-flex justify-content-sm-between justify-content-center  flex-wrap">
-        {store.map((card, i) => ( 
+    <motion.div layout className="d-flex flex-wrap card-conteiner" >
+        {/* framer motion  */}
+      <div className="d-flex justify-content-sm-between justify-content-center  flex-wrap">
+        {store.map((card, i) => (           
             <Card className="text-white cardComponent mb-2" key={i}>
-              <Card.Img src={card.displayingInformation.imageFile} alt={card.name} />
+              <Card.Img src={card.displayingInformation.imageFile} alt={card.displayingInformation.title} />
               <Card.ImgOverlay style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
                   <Card.Title className="text-end">
                     {card.displayingInformation.title}
@@ -129,7 +161,7 @@ const bn = window.brain
                   <Card.Text>
                     {card.description}
                   </Card.Text>
-                  <Card.Text className="text-center mb-2" 
+                  <div className="text-center mb-2" 
                     style={{
                       display: 'flex',
                       marginBottom: '0px',
@@ -138,12 +170,12 @@ const bn = window.brain
                       height: '80px'
                     }}>
                         <RatingStar onClickRating={nextTry}/>                
-                        <BtnGroup rating={formatAsPercent(card.wanted)}/>                        
-                    </Card.Text>
+                        <BtnGroup rating={formatAsPercent(card.wanted)} />                        
+                    </div>
               </Card.ImgOverlay>
-            </Card>
+            </Card>                    
         ))}
-    </div>    
+      </div>
+    </motion.div>    
   )
 }
-
