@@ -28,7 +28,6 @@ useEffect(() => {
     
     }
 
-  getLocation();
     async function calculateRoute() {
     
       // eslint-disable-next-line no-undef
@@ -45,7 +44,11 @@ useEffect(() => {
 
     }
 
-    calculateRoute();
+
+  getLocation();
+   
+  
+  calculateRoute();
 
 
  },[])
