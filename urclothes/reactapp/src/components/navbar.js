@@ -55,7 +55,7 @@ const BtnStyle = {
             <Link className="nav-link fs-4" to="#">Matches</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link fs-4" to="/profile">Perfil</Link>
+            <Link className="nav-link fs-4" to="/home/profile">Perfil</Link>
           </li>
           
         </ul>

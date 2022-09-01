@@ -155,7 +155,7 @@ export default function Tarjeta() {
             <Card className="text-white cardComponent mb-2" key={i}>
               <Card.Img src={card.displayingInformation.imageFile} alt={card.displayingInformation.title} />
               <Card.ImgOverlay style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-                  <Card.Title className="text-end">
+                  <Card.Title style={{color:'black'}} className="text-end">
                     {card.displayingInformation.title}
                   </Card.Title>
                   <Card.Text>

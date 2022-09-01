@@ -16,7 +16,7 @@ export default function BtnGroup({stylesMap, stylesHeart, stylesGear, onClickHea
 
 const {dispatch, showDestiny, longitud, latitud} = useClothesContext();
     // manejar estado con useState
-    const heart = false;
+   
     
     const mapStyle = {
         width: '100%',
@@ -35,7 +35,7 @@ const {dispatch, showDestiny, longitud, latitud} = useClothesContext();
         </Popover>
       )
 
-const heart = false;
+/*const heart = false;*/
 
     const onClickMap = () => {
         dispatch({type:"SET_LAT", value: 10.502219280479151});

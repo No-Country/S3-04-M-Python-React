@@ -14,7 +14,7 @@ export const useClothesContext = () => {
 }
 
 const clothesReducer = (state, action) => {
-    const { type, value} = action;
+    const {type, value} = action;
     switch (type) {
         case "SET_LAT":
             return{
