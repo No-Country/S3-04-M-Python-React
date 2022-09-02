@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -11,11 +11,25 @@ import {BsFillGearFill} from 'react-icons/bs'
 
 import {useClothesContext} from '../contexts/AppProvider';
 
-export default function BtnGroup({stylesMap, stylesHeart, stylesGear, onClickHeart, /*onClickMap,*/ onClickGear, rating}) {
+export default function BtnGroup({stylesMap, stylesHeart, stylesGear, onClickHeart, mapCoordinates, onClickGear, rating}) {
 
-
-const {dispatch, showDestiny, longitud, latitud} = useClothesContext();
+const {dispatch, longitud, latitud} = useClothesContext();
+const [Window, setWindow] = useState(false);
     // manejar estado con useState
+
+    useEffect(() => {
+      function windowsWidth () {
+        const { screenWidth: width, screenHeight: height } = window;
+        
+        if (window.innerWidth >= 992) {return setWindow(false)}
+        else {return setWindow(true)}
+      }
+    
+      
+      window.addEventListener('resize', windowsWidth);
+    return () => window.removeEventListener('resize', windowsWidth);
+    }, [])
+
    
     
     const mapStyle = {
@@ -27,7 +41,7 @@ const {dispatch, showDestiny, longitud, latitud} = useClothesContext();
     }
     
     const popOverMap = (
-        <Popover id="popover-basic" className="card-popover" style={{width: '85vw'}}>
+        <Popover id="popover-basic" className="card-popover" style={{width: '45vw'}}>
           <Popover.Body>
           <strong> Visualiza la tienda en Google map </strong>
             <MapaGoogle style={mapStyle}/>
@@ -36,24 +50,32 @@ const {dispatch, showDestiny, longitud, latitud} = useClothesContext();
       )
 
 /*const heart = false;*/
+console.log(mapCoordinates);
 
     const onClickMap = () => {
-        dispatch({type:"SET_LAT", value: 10.502219280479151});
-        dispatch({type:"SET_LNG", value: -66.90413403673223});
-        dispatch({type:"SET_SHOW_DESTINY", value: !showDestiny});
+        dispatch({type:"SET_LAT", value: mapCoordinates.lat});
+        dispatch({type:"SET_LNG", value: mapCoordinates.lng});
+
        
     }
 
   return (
     <ButtonGroup aria-label="Basic example">
-        <OverlayTrigger trigger="click" placement="bottom" overlay={popOverMap}>
+        
+        {Window? (<OverlayTrigger trigger="click" placement="bottom" overlay={popOverMap}>
         <Button 
             style={{color: '#0b5ed7', backgroundColor: '#FFFFFF', borderColor: '#fff',...stylesMap}}
             onClick={onClickMap}
             >
             <BsFillMapFill />
         </Button>
-        </OverlayTrigger>
+        </OverlayTrigger>):
+        (<Button 
+            style={{color: '#0b5ed7', backgroundColor: '#FFFFFF', borderColor: '#fff',...stylesMap}}
+            onClick={onClickMap}
+            >
+            <BsFillMapFill />
+        </Button>)}
         
         <Button 
             style={{color: '#de5b3e', backgroundColor: '#FFF', borderColor: '#fff',...stylesHeart}}

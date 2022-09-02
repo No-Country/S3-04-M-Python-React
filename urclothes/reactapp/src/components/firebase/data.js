@@ -35,6 +35,10 @@ const data = [
     displayingInformation: {
       imageFile: `${url}cl_black_nl_circle_hp_false_prc_1999.jpg`,
       title: 'Rainbow Shirt',
+      coordinates: {
+        lat: -34.68186785690417,  
+        lng: -58.57845199362653
+      }
     },
   },
   {
@@ -47,6 +51,10 @@ const data = [
     displayingInformation: {
       imageFile: `${url}cl_blue_nl_circle_hp_false_prc_1999.jpg`, 
       title: 'R - bow Shirt',
+      coordinates: {
+          lat: -34.58459637073636, 
+          lng: -58.539041856720694
+        }
     },
   },
   {
@@ -59,6 +67,10 @@ const data = [
     displayingInformation: {
       imageFile: `${url}cl_darkblue_nl_circle_hp_true_prc_2999.jpg`,
       title: 'Printed Shirt',
+      coordinates: {
+        lat: -34.58459637073636, 
+        lng: -58.539041856720694
+      }
     },
   },
   {
@@ -71,6 +83,10 @@ const data = [
     displayingInformation: { 
         imageFile: `${url}cl_gray_nl_v_hp_false_prc_999.jpg`,
         title: 'Gray V-neck Shirt',
+        coordinates: {
+          lat: -34.58459637073636, 
+          lng: -58.539041856720694
+        }
     },
   },
   {
@@ -83,6 +99,10 @@ const data = [
     displayingInformation: { 
         imageFile: `${url}cl_white_nl_v_hp_false_prc_999.jpg`,
         title: 'White V-neck Shirt',
+        coordinates: {
+          lat: -34.58459637073636, 
+          lng: -58.539041856720694
+        }
      },
   },
   {
@@ -95,6 +115,10 @@ const data = [
     displayingInformation: {
       imageFile: `${url}cl_green_nl_circle_hp_false_prc_1799.jpg`,
       title: 'Green Shirt',
+      coordinates: {
+        lat:-34.673680097064505,
+        lng:-58.51047408977797
+      }
     },
   },
   {
@@ -107,6 +131,10 @@ const data = [
     displayingInformation: {
       imageFile: `${url}cl_blue_nl_circle_hp_false_prc_1799.jpg`,
         title: 'Blue Shirt',
+        coordinates: {
+          lat: -34.58459637073636, 
+          lng: -58.539041856720694
+        }
     },
   },
   {
@@ -119,6 +147,10 @@ const data = [
     displayingInformation: {
       imageFile: `${url}cl_turqoise_nl_circle_hp_true_prc_1599.jpg`,
       title: 'Printed Shirt',
+      coordinates: {
+        lat: -34.67396244708636, 
+        lng: -58.381041414268324
+      }
     },
   },
   {
@@ -131,6 +163,10 @@ const data = [
     displayingInformation: {
       imageFile: `${url}cl_skin_nl_circle_hp_true_prc_1599.jpg`,
       title: 'Printed Shirt',
+      coordinates: {
+        lat: -34.58459637073636, 
+        lng: -58.539041856720694
+      }
     },
   },
   {
@@ -143,6 +179,10 @@ const data = [
     displayingInformation: {
         imageFile: `${url}cl_darkblue_nl_circle_hp_true_prc_1599.jpg`,
         title: 'Printed Shirt',
+        coordinates: {
+          lat: -34.66379723994309,  
+          lng: -58.68350875411975
+        }
     },
   },
   {
@@ -155,6 +195,10 @@ const data = [
     displayingInformation: {
       imageFile: `${url}cl_turqoise_nl_circle_hp_true_prc_1599_1.jpg`,
       title: 'Printed Shirt',
+      coordinates: {
+        lat: -34.58459637073636, 
+        lng: -58.539041856720694
+      }
     },
   },
   {
@@ -167,6 +211,10 @@ const data = [
     displayingInformation: {
         imageFile: `${url}cl_darkblue_nl_circle_hp_true_prc_1599_1.jpg`,
         title: 'Printed Shirt',
+        coordinates: {
+          lat: -34.58459637073636, 
+          lng: -58.539041856720694
+        }
     },
   },
   {
@@ -179,6 +227,10 @@ const data = [
     displayingInformation: {
         imageFile: `${url}cl_lightblue_nl_circle_hp_false_prc_1999.jpg`,
         title: 'Light Blue Shirt',
+        coordinates: {
+          lat: -34.58459637073636, 
+          lng: -58.539041856720694
+        }
     },
   },
   {
@@ -191,6 +243,10 @@ const data = [
     displayingInformation: {
         imageFile: `${url}cl_lightgreen_nl_circle_hp_false_prc_1999.jpg`,
         title: 'Light Green Shirt',
+        coordinates: {
+          lat: -34.58459637073636, 
+          lng: -58.539041856720694
+        }
     },
   },
   {
@@ -203,6 +259,10 @@ const data = [
     displayingInformation: {
         imageFile: `${url}cl_skin_nl_circle_hp_false_prc_1999.jpg`,
         title: 'Skin Shirt',
+        coordinates: {
+          lat: -34.58459637073636, 
+          lng: -58.539041856720694
+        }
     },
   },
   {
@@ -215,6 +275,10 @@ const data = [
     displayingInformation: {
         imageFile: `${url}cl_gray_nl_circle_hp_false_prc_1999.jpg`,
         title: 'Gray Shirt',
+        coordinates: {
+          lat: -34.58459637073636, 
+          lng: -58.539041856720694
+        }
     },
   },
 ];

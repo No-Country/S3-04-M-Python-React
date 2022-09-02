@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {useJsApiLoader, GoogleMap, Marker, DirectionsRenderer} from "@react-google-maps/api"
+import {useJsApiLoader, GoogleMap, Marker, DirectionsRenderer} from "@react-google-maps/api";
+
+import {useClothesContext} from '../contexts/AppProvider';
 
 
 export default function MapaGoogle({style}) {
 
   
   const [location, setLocation] = useState({lat: null, lng: null});
-  const [Destiny, setDestiny] = useState(null);
- 
+  const {dispatch, longitud, latitud} = useClothesContext();
 
     const {isLoaded} = useJsApiLoader({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-    libraries: ['places']
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
   });
  
 useEffect(() => {
@@ -28,38 +28,15 @@ useEffect(() => {
     
     }
 
-    async function calculateRoute() {
-    
-      // eslint-disable-next-line no-undef
-      const directionsService = new google.maps.DirectionsService()
-      const results = await directionsService.route({
-        origin: location,
-        destination: {
-          lat:  10.502219280479151, 
-          lng: -66.90413403673223},
-        // eslint-disable-next-line no-undef
-        // travelMode: google.maps.TravelMode.DRIVING,
-        // travelMode: DRIVING
-      })
-      setDestiny(results)
-
-    }
-
+   
 
   getLocation();
    
   
-  calculateRoute();
+  
 
 
  },[])
-
-
-console.log(location, Destiny);
-
-// setDestiny(
-  
-// )
 
 
   if(!isLoaded){
@@ -71,14 +48,14 @@ console.log(location, Destiny);
     <div className="mapa-google_dnone">
       <GoogleMap 
       mapContainerStyle={{width: "100%", height: "85vh", borderRadius: "10px", ...style}}
-      center={location}
+      center={{lat: latitud, lng: longitud}}
       zoom={15}>
         <Marker
-          position={location}
+          position={{lat: latitud, lng: longitud}}
 
           name={'Me'}
         />
-        <DirectionsRenderer directions={Destiny}/>
+      +
 
       </GoogleMap>
       

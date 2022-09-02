@@ -170,7 +170,7 @@ export default function Tarjeta() {
                       height: '80px'
                     }}>
                         <RatingStar onClickRating={nextTry}/>                
-                        <BtnGroup rating={formatAsPercent(card.wanted)} />                        
+                        <BtnGroup rating={formatAsPercent(card.wanted)} mapCoordinates={card.displayingInformation.coordinates} />                        
                     </div>
               </Card.ImgOverlay>
             </Card>                    

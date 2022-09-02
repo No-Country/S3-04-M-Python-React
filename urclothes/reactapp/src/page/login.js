@@ -23,6 +23,8 @@ export default function Login() {
         loginFacebook();
     }
 
+
+
     const googleBtnStyle = {
         backgroundColor: 'rgb(255, 255, 255)',
         color: 'rgb(0, 0, 0 )',
@@ -81,7 +83,7 @@ export default function Login() {
                     </Form.Group>
                 </Col>
                 </Row>
-                <Button variant="primary" type="submit" size="lg" style={{width: '100%', marginBottom: '10px'}}>
+                <Button variant="primary" type="submit" size="lg" style={{width: '100%', marginBottom: '10px'}} onClick = {handleGoogle}>
                     Entrar
                 </Button>
                 <div className=" d-flex justify-content-around">
