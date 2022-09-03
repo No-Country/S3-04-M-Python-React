@@ -24,7 +24,7 @@ const BtnStyle = {
 }
 
   return (
-    <nav className="navbar sticky-top">
+    <nav className="navbar sticky-top shadow-none">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/home">
           <img src={logo} alt="UrClothes logo" style={{ width: "60px" }} />
