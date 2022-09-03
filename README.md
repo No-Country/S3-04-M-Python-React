@@ -1,10 +1,10 @@
 # S3-04-M-Python-React
 
 # Titulo de Proyecto
-UrClothes
+UrClothes. Encuentra tu estilo
 
 # Descripción de Proyecto
-UrClothes es un proyecto que tiene como fin conectar tiendas de ropa y personas a través de un análisis de su personalidad y sus gustos subconscientes haciendo uso de machine learning con Brain.JS.
+UrClothes es un proyecto que tiene como fin conectar tiendas de ropa y personas a través de un análisis de su personalidad y sus gustos subconscientes haciendo uso de machine learning.
 
 # Roles de cada integrante
 -Raphael Richardson - FrontEnd
