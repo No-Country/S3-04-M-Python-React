@@ -1,15 +1,24 @@
 import React, {useState, useEffect} from 'react'
-import {Form, Button} from 'react-bootstrap';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Questions () {
     const [Window, setWindow] = useState(false);
+    const [answer, setAnswer] = useState({
+        first: null,
+        second: null,
+        third: null,
+        fourth: null
+    })
+    const [able, setAble] = useState(false);
 
     useEffect(() => {
-      function windowsWidth () {
+        if (answer.first != null && answer.second != null && answer.third != null && answer.fourth != null) 
+        {setAble(true);}
+        else {setAble(false);}  
+      
+      
+    function windowsWidth () {
         const { screenWidth: width, screenHeight: height } = window;
         
         if (window.innerWidth > 786) {return setWindow(false)}
@@ -22,13 +31,23 @@ export default function Questions () {
     }, [])
     
 
+    console.log(able);
+
+    const sendInfo = (e) => {
+        e.preventDefault();
+
+        useNavigate('/home');
+    }
+    
+
+
   return (
     <div className='container-fluid m-auto py-2' style={{background: "#0070b8"}}>
     <div className={Window? 'lrContainer p-3 w-75 mb-3':'lrContainer p-3 w-50 mb-3'} style={{background: "white"}}>
         <h3 className='text-center'>Responde el siguiente cuestionario</h3>
-    <form>
+    <form onSubmit={sendInfo}>
         <p className='mb-2'>¿Qué color crees que te define mejor?</p>
-        <div className='inputContainer mb-3'>
+        <div className='inputContainer mb-3' onChange = {(e) => setAnswer({first: e.target.value, second: answer.second, third: answer.third, fourth: answer.fourth})}>
 
             <input type='radio' id='first-1' className='radioButtons' value='Rojo' name='first'/>
             <label htmlFor='first-1' className="radioLabel">Rojo</label>
@@ -44,7 +63,7 @@ export default function Questions () {
         </div>
         
         <p className='mb-2'>Elige tu estación favorita del año</p>
-        <div className='inputContainer mb-3'>
+        <div className='inputContainer mb-3' onChange = {(e) => setAnswer({first: answer.first, second: e.target.value, third: answer.third, fourth: answer.fourth})}>
             
             <input type='radio' id='second-1' className='radioButtons' value='Invierno' name='second'/>
             <label htmlFor='second-1' className="radioLabel">Invierno</label>
@@ -60,7 +79,7 @@ export default function Questions () {
         </div>
         
         <p className='mb-2'>¿Con cuál de estos diseños te identificas más?</p>
-        <div className='inputContainer mb-3'>
+        <div className='inputContainer mb-3' onChange = {(e) => setAnswer({first: answer.first, second: answer.second, third: e.target.value, fourth: answer.fourth})}>
 
             <input type='radio' id='third-1' className='radioButtons' value='Animal Print' name='third'/>
             <label htmlFor='third-1' className="radioLabel">Animal Print</label>
@@ -76,7 +95,7 @@ export default function Questions () {
         </div>
 
         <p className='mb-2'>¿Practicas algún deporte?</p>
-        <div className='inputContainer mb-3'>
+        <div className='inputContainer mb-3' onChange = {(e) => setAnswer({first: answer.first, second: answer.second, third: answer.third, fourth: e.target.value})}>
             
             <input type='radio' id='fourth-1' className='radioButtons' value='No practico deportes' name='fourth'/>
             <label htmlFor='fourth-1' className="radioLabel">No practico deportes</label>
@@ -91,7 +110,7 @@ export default function Questions () {
             <label htmlFor='fourth-4' className="radioLabel">Practico yoga</label>
         </div>
         <div style={{display: "flex", width: "100%", justifyContent: "flex-end"}}>
-        <input type={'submit'} className='btn btn-primary px-5 me-2'/>
+        <input type={'submit'} className='btn btn-primary px-5 me-2' disabled={!able}/>
         </div>
     </form>
     </div>
