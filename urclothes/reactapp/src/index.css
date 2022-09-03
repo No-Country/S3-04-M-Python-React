@@ -80,3 +80,15 @@ code {
     width: 95%
   }
 }
+
+
+.backButton{
+  position:absolute;
+  z-index: 20;
+  top: 1%;
+  left: 2%;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: red;
+  color:white;
+}

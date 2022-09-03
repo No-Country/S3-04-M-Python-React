@@ -19,7 +19,7 @@ const BtnStyle = {
     borderRadius: '5px',
     padding: '10px',
     border: 'none',
-    margin: '5px',
+    margin: '0px',
     boxShadow: '2px 2px 6px 2px rgb(0 0 0 / 20%)',  
 }
 
@@ -58,17 +58,21 @@ const BtnStyle = {
             <Link className="nav-link fs-4" to="/home/profile">Perfil</Link>
           </li>
           
-        </ul>
-        {!isAuthenticated ? null : 
+          {!isAuthenticated ? null : 
+          <li>
           <Boton 
+             
              title='Logout' 
              onClick={handleLogout} 
              styles={BtnStyle}
-          /> }
-        <form className="d-flex" role="search">
-          <input className="search-form me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button className="btn btn-outline-success" type="submit">Search</button>
-        </form>
+          /> 
+          </li>}
+       
+          
+
+
+        </ul>
+        
       </div>
     </div>
   </div>

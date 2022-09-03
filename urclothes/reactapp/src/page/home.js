@@ -25,14 +25,9 @@ export default function Home() {
         <div className="container-fluid p-0">
             <Navbar />
             <div className="container">
+            <span className="d-block mb-2 text-capitalize fs-3 fw-bold" >Bienvenido {userName}</span>
                 <div className='row'>
                     <div className="col-lg-8">                
-                        <h1>Bienvenido {userName}</h1>
-                        <Boton 
-                            title='Logout' 
-                            // onClick={handleLogout} 
-                            styles={BtnStyle}
-                        />
                         <Tarjeta />
                     </div>
                     <div className="d-none d-lg-block col-md-4">
