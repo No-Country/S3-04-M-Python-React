@@ -10,14 +10,11 @@ export default function Questions () {
         third: null,
         fourth: null
     })
-    const [able, setAble] = useState(false);
+    const [able, setAble] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (answer.first != null && answer.second != null && answer.third != null && answer.fourth != null) 
-        {setAble(true);}
-        else {setAble(false);}  
-      
+
       
     function windowsWidth () {
         const { screenWidth: width, screenHeight: height } = window;
@@ -31,8 +28,14 @@ export default function Questions () {
     return () => window.removeEventListener('resize', windowsWidth);
     }, [])
     
+    useEffect(()=>{
+        if (answer.first != null && answer.second != null && answer.third != null && answer.fourth != null) 
+        {setAble(false);}
+        else {setAble(true);}  
+        console.log(able);
+    }, [answer])
 
-    console.log(able);
+    
 
     const sendInfo = (e) => {
         e.preventDefault();
@@ -111,7 +114,7 @@ export default function Questions () {
             <label htmlFor='fourth-4' className="radioLabel">Practico yoga</label>
         </div>
         <div style={{display: "flex", width: "100%", justifyContent: "flex-end"}}>
-        <input type={'submit'} className='btn btn-primary px-5 me-2' disabled={!able}/>
+        <input type={'submit'} className='btn btn-primary px-5 me-2' disabled={able}/>
         </div>
     </form>
     </div>
