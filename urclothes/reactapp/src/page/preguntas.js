@@ -46,7 +46,7 @@ export default function Questions () {
 
 
   return (
-    <div className='container-fluid m-auto py-2' style={{background: "#0070b8"}}>
+    <div className='container-fluid m-auto mb-0' style={{background: "#0070b8", paddingBottom: "55px", paddingTop: "40px"}}>
     <div className={Window? 'lrContainer p-3 w-75 mb-3':'lrContainer p-3 w-50 mb-3'} style={{background: "white"}}>
         <h3 className='text-center'>Responde el siguiente cuestionario</h3>
     <form onSubmit={sendInfo}>
@@ -114,7 +114,7 @@ export default function Questions () {
             <label htmlFor='fourth-4' className="radioLabel">Practico yoga</label>
         </div>
         <div style={{display: "flex", width: "100%", justifyContent: "flex-end"}}>
-        <input type={'submit'} className='btn btn-primary px-5 me-2' disabled={able}/>
+        <input type={'submit'} className='btn btn-primary px-5 me-2' disabled={able} value="Enviar"/>
         </div>
     </form>
     </div>
