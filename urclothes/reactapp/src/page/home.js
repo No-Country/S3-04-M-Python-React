@@ -24,12 +24,12 @@ export default function Home() {
         <div className="container-fluid p-0">
             <Navbar />
             <div className="container">
-            <span className="d-block mb-2 text-capitalize fs-3 fw-bold" >Bienvenido {userName}</span>
+            <span className="d-block mb-2 text-capitalize fs-3 fw-bold text-center" >Bienvenido {userName}</span>
                 <div className='row'>
-                    <div className="col-lg-8">                
+                    <div className="col-xxl-8 col-lg-6">                
                         <Tarjeta />
                     </div>
-                    <div className="d-none d-lg-block col-md-4">
+                    <div className="d-none d-lg-block col-md-4 col-lg-6 col-xxl-4">
                          <MapaGoogle /> 
                     </div>
                 </div>

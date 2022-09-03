@@ -19,7 +19,11 @@ useEffect(() => {
     const getLocation = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function showPosition(position){
-          setLocation({lat: position.coords.latitude, lng:position.coords.longitude})}, function(error) {
+          if(longitud != null && latitud != null){
+            setLocation({lat:latitud, lng: longitud});
+          } else {setLocation({lat: position.coords.latitude, lng:position.coords.longitude})}
+        
+          }, function(error) {
 
           console.error("Error Code = " + error.code + " - " + error.message);
 
@@ -27,17 +31,16 @@ useEffect(() => {
       }
     
     }
-
    
 
   getLocation();
    
   
-  
 
 
  },[])
 
+console.log(location)
 
   if(!isLoaded){
     return(<div>...</div>)
@@ -48,10 +51,10 @@ useEffect(() => {
     <div className="mapa-google_dnone">
       <GoogleMap 
       mapContainerStyle={{width: "100%", height: "85vh", borderRadius: "10px", ...style}}
-      center={{lat: latitud, lng: longitud}}
+      center={location}
       zoom={15}>
         <Marker
-          position={{lat: latitud, lng: longitud}}
+          position={location}
 
           name={'Me'}
         />

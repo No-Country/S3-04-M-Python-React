@@ -151,9 +151,9 @@ export default function Tarjeta() {
 
   const [enterprises, setEnterprises] = useState([]);
   return (
-    <motion.div layout className="d-flex flex-wrap card-conteiner">
+    <motion.div layout className="d-flex flex-wrap card-container">
       {/* framer motion  */}
-      <div className="d-flex justify-content-sm-between justify-content-center  flex-wrap">
+      <div className="d-flex justify-content-xxl-between justify-content-center  flex-wrap">
         {store.map((card, i) => (
           <Card
             className="text-white cardComponent mb-2"

@@ -50,7 +50,6 @@ const [Window, setWindow] = useState(false);
       )
 
 /*const heart = false;*/
-console.log(mapCoordinates);
 
     const onClickMap = () => {
         dispatch({type:"SET_LAT", value: mapCoordinates.lat});
