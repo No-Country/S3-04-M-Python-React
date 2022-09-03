@@ -1,33 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter} from 'react-router-dom';
-import {AuthContextProvider} from './contexts/authContext';
-import { Auth0Provider } from '@auth0/auth0-react';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import { AuthContextProvider } from "./contexts/authContext";
+import { Auth0Provider } from "@auth0/auth0-react";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { ClothesProvider } from './contexts/AppProvider';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { ClothesProvider } from "./contexts/AppProvider";
+import "mdb-react-ui-kit/dist/css/mdb.min.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-
     <AuthContextProvider>
-    <ClothesProvider>
-      <BrowserRouter>
-        <Auth0Provider
+      <ClothesProvider>
+        <BrowserRouter>
+          <Auth0Provider
             domain="rapahael.auth0.com"
             clientId="lWpX1ARyIi5qkU5FZhU3V72tVIJia62X"
             redirectUri={window.location.origin}
-            >
-          
+          >
             <App />
-          
-        </Auth0Provider>
-      </BrowserRouter>
-   </ClothesProvider>
+          </Auth0Provider>
+        </BrowserRouter>
+      </ClothesProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );
