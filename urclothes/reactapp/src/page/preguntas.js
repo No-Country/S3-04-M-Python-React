@@ -11,6 +11,7 @@ export default function Questions () {
         fourth: null
     })
     const [able, setAble] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (answer.first != null && answer.second != null && answer.third != null && answer.fourth != null) 
@@ -36,7 +37,7 @@ export default function Questions () {
     const sendInfo = (e) => {
         e.preventDefault();
 
-        useNavigate('/home');
+        navigate('/home');
     }
     
 
