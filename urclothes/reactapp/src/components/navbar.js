@@ -12,15 +12,16 @@ export const Navbar = () => {
     // alert("Gracias por ");
   };
 
-  const BtnStyle = {
-    backgroundColor: "rgb(255, 255, 255)",
-    color: "rgb(0, 0, 0 )",
-    borderRadius: "5px",
-    padding: "10px",
-    border: "none",
-    margin: "5px",
-    boxShadow: "2px 2px 6px 2px rgb(0 0 0 / 20%)",
-  };
+
+const BtnStyle = {
+    backgroundColor: 'rgb(255, 255, 255)',
+    color: 'rgb(0, 0, 0 )',
+    borderRadius: '5px',
+    padding: '10px',
+    border: 'none',
+    margin: '0px',
+    boxShadow: '2px 2px 6px 2px rgb(0 0 0 / 20%)',  
+}
 
   return (
     <nav className="navbar sticky-top">
@@ -56,6 +57,7 @@ export const Navbar = () => {
                 UrClothes
               </h5>
             </div>
+
 
             <button
               type="button"
@@ -98,6 +100,7 @@ export const Navbar = () => {
             </form> */}
           </div>
         </div>
+
       </div>
     </nav>
   );

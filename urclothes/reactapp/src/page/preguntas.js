@@ -1,16 +1,25 @@
 import React, {useState, useEffect} from 'react'
-import {Form, Button} from 'react-bootstrap';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Questions () {
     const [Window, setWindow] = useState(false);
+    const [answer, setAnswer] = useState({
+        first: null,
+        second: null,
+        third: null,
+        fourth: null
+    })
+    const [able, setAble] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
-      function windowsWidth () {
+
+      
+    function windowsWidth () {
         const { screenWidth: width, screenHeight: height } = window;
         
-        if (window.innerWidth > 715) {return setWindow(false)}
+        if (window.innerWidth > 786) {return setWindow(false)}
         else {return setWindow(true)}
       }
     
@@ -19,160 +28,95 @@ export default function Questions () {
     return () => window.removeEventListener('resize', windowsWidth);
     }, [])
     
+    useEffect(()=>{
+        if (answer.first != null && answer.second != null && answer.third != null && answer.fourth != null) 
+        {setAble(false);}
+        else {setAble(true);}  
+        console.log(able);
+    }, [answer])
+
+    
+
+    const sendInfo = (e) => {
+        e.preventDefault();
+
+        navigate('/home');
+    }
+    
+
 
   return (
-    <div className='container-fluid m-auto'>
-    <div className={Window? 'lrContainer p-3 w-75 mb-3':'lrContainer p-3 w-50 mb-3'}>
+    <div className='container-fluid m-auto py-2' style={{background: "#0070b8"}}>
+    <div className={Window? 'lrContainer p-3 w-75 mb-3':'lrContainer p-3 w-50 mb-3'} style={{background: "white"}}>
         <h3 className='text-center'>Responde el siguiente cuestionario</h3>
-    <Form>
-        <Form.Group className='mb-2'>
-            <p className='mb-3'>¿Qué color crees que te define mejor?</p>
-           <ButtonGroup className='w-100 d-flex flex-column align-items-center ms-lg-4'>
-            <div className="row mb-3 w-100">
-            <ToggleButton
-            className='mb-3 mb-lg-0 ms-2 ms-md-4 ms-lg-0 rounded col-lg-5 col-11' type='radio' 
-            variant='outline-success'
-            name='first'>Rojo</ToggleButton>
-            <ToggleButton
-            className='ms-2 ms-md-4 ms-lg-5 rounded col-lg-5 col-11' type='radio' 
-            variant='outline-success'
-            name='first'>Azul</ToggleButton>
-            </div>
-            <div className='row mb-3 w-100'>
-            <ToggleButton
-            className='mb-3 mb-lg-0 ms-2 ms-md-4 ms-lg-0 rounded col-lg-5 col-11' type='radio' 
-            variant='outline-success'
-            name='first'>Amarillo</ToggleButton>
-            <ToggleButton
-            className='ms-2 ms-md-4 ms-lg-5 rounded col-lg-5 col-11' type='radio' 
-            variant='outline-success'
-            name='first'>Verde</ToggleButton>
-            </div>
-           </ButtonGroup>
+    <form onSubmit={sendInfo}>
+        <p className='mb-2'>¿Qué color crees que te define mejor?</p>
+        <div className='inputContainer mb-3' onChange = {(e) => setAnswer({first: e.target.value, second: answer.second, third: answer.third, fourth: answer.fourth})}>
 
+            <input type='radio' id='first-1' className='radioButtons' value='Rojo' name='first'/>
+            <label htmlFor='first-1' className="radioLabel">Rojo</label>
+            
+            <input type='radio' id='first-2' className='radioButtons' value='Azul' name='first'/>
+            <label htmlFor='first-2' className="radioLabel">Azul</label>
 
-        </Form.Group>
-        <Form.Group className='mb-2'>
-            <p className='mb-3'>Elige tu estación favorita del año</p>
-            <ButtonGroup className="w-100 d-flex flex-column align-items-center ms-lg-4">
-                <div className="row mb-3 w-100">
-            <ToggleButton
-            className='mb-3 mb-lg-0 ms-2 ms-md-4 ms-lg-0 rounded col-lg-5 col-11'
-            type='radio'
-            name='second'
-            id='second-1'
-            variant='outline-success' 
-            >Invierno</ToggleButton>
-            
-            <ToggleButton
-            className='ms-2 ms-md-4 ms-lg-5 rounded col-lg-5 col-11'
-            type='radio'
-            name='second'
-            id='second-2'
-            variant='outline-success' 
-            >Verano</ToggleButton>
-            </div>
-            <div className="row mb-3 w-100">
-            <ToggleButton
-            className='mb-3 mb-lg-0 ms-2 ms-md-4 ms-lg-0 rounded col-lg-5 col-11'
-            type='radio'
-            name='second'
-            id='second-3'
-            variant='outline-success' 
-            >Otoño</ToggleButton>
-            
-            <ToggleButton
-            className='ms-2 ms-md-4 ms-lg-5 rounded col-lg-5 col-11'
-            type='radio'
-            name='second'
-            id='second-4'
-            variant='outline-success' 
-            >Primavera</ToggleButton>
-            </div>
-            </ButtonGroup>
-        </Form.Group>
-        <Form.Group className='mb-2'>
-            <p className='mb-3'>¿Con cuál de estos diseños te identificas más?</p>
-            <ButtonGroup className="w-100 d-flex flex-column align-items-center ms-lg-4">
-                <div className="row mb-3 w-100">
-            <ToggleButton
-            className='mb-3 mb-lg-0 ms-2 ms-md-4 ms-lg-0 rounded col-lg-5 col-11'
-            type='radio'
-            name='third'
-            id='third-1'
-            variant='outline-success' 
-            >Animal Print</ToggleButton>  
+            <input type='radio' id='first-3' className='radioButtons' value='Amarillo' name='first'/>
+            <label htmlFor='first-3' className="radioLabel">Amarillo</label>
 
-            <ToggleButton
-            className='ms-2 ms-md-4 ms-lg-5 rounded col-lg-5 col-11'
-            type='radio'
-            name='third'
-            id='third-2'
-            variant='outline-success' 
-            >Liso</ToggleButton>
-            </div>
-            <div className="row mb-3 w-100">
-            <ToggleButton
-            className='mb-3 mb-lg-0 ms-2 ms-md-4 ms-lg-0 rounded col-lg-5 col-11'
-            type='radio'
-            name='third'
-            id='third-3'
-            variant='outline-success' 
-            >Puntos</ToggleButton>
+            <input type='radio' id='first-4' className='radioButtons' value='Verde' name='first'/>
+            <label htmlFor='first-4' className="radioLabel">Verde</label>
+        </div>
+        
+        <p className='mb-2'>Elige tu estación favorita del año</p>
+        <div className='inputContainer mb-3' onChange = {(e) => setAnswer({first: answer.first, second: e.target.value, third: answer.third, fourth: answer.fourth})}>
+            
+            <input type='radio' id='second-1' className='radioButtons' value='Invierno' name='second'/>
+            <label htmlFor='second-1' className="radioLabel">Invierno</label>
+            
+            <input type='radio' id='second-2' className='radioButtons' value='Verano' name='second'/>
+            <label htmlFor='second-2' className="radioLabel">Verano</label>
+            
+            <input type='radio' id='second-3' className='radioButtons' value='Otoño' name='second'/>
+            <label htmlFor='second-3' className="radioLabel">Otoño</label>
+            
+            <input type='radio' id='second-4' className='radioButtons' value='Primavera' name='second'/>
+            <label htmlFor='second-4' className="radioLabel">Primavera</label>
+        </div>
+        
+        <p className='mb-2'>¿Con cuál de estos diseños te identificas más?</p>
+        <div className='inputContainer mb-3' onChange = {(e) => setAnswer({first: answer.first, second: answer.second, third: e.target.value, fourth: answer.fourth})}>
 
-            <ToggleButton
-            className='ms-2 ms-md-4 ms-lg-5 rounded col-lg-5 col-11'
-            type='radio'
-            name='third'
-            id='third-4'
-            variant='outline-success' 
-            >Rayas</ToggleButton>
-            </div>
-            </ButtonGroup>       
-             </Form.Group>
-        <Form.Group className='mb-2'>
-            <p className='mb-3'>¿Practicas algún deporte?</p>
-            <ButtonGroup className="w-100 d-flex flex-column align-items-center ms-lg-4">
-                <div className="row mb-3 w-100">
-            <ToggleButton
-            className='mb-3 mb-lg-0 ms-2 ms-md-4 ms-lg-0 rounded col-lg-5 col-11'
-            type='radio'
-            name='fourth'
-            id='fourth-1'
-            variant='outline-success' 
-            >No practico deportes</ToggleButton>
+            <input type='radio' id='third-1' className='radioButtons' value='Animal Print' name='third'/>
+            <label htmlFor='third-1' className="radioLabel">Animal Print</label>
             
-            <ToggleButton
-            className='ms-2 ms-md-4 ms-lg-5 rounded col-lg-5 col-11'
-            type='radio'
-            name='fourth'
-            id='fourth-2'
-            variant='outline-success' 
-            >Practico fútbol</ToggleButton>
-            </div>
-            <div className="row mb-3 w-100">
-            <ToggleButton
-            className='mb-3 mb-lg-0 ms-2 ms-md-4 ms-lg-0 rounded col-lg-5 col-11'
-            type='radio'
-            name='fourth'
-            id='fourth-3'
-            variant='outline-success' 
-            >Practico basketball</ToggleButton>
+            <input type='radio' id='third-2' className='radioButtons' value='Liso' name='third'/>
+            <label htmlFor='third-2' className="radioLabel">Liso</label>
             
-            <ToggleButton
-            className='ms-2 ms-md-4 ms-lg-5 rounded col-lg-5 col-11'
-            type='radio'
-            name='fourth'
-            id='fourth-4'
-            variant='outline-success' 
-            >Practico yoga</ToggleButton>
-            </div>
-            </ButtonGroup>
-        </Form.Group>
-        <Form.Group className='d-flex justify-content-end'>
-        <Button as="input" type="submit" value="Enviar" />
-        </Form.Group>
-    </Form>
+            <input type='radio' id='third-3' className='radioButtons' value='Puntos' name='third'/>
+            <label htmlFor='third-3' className="radioLabel">Puntos</label>
+            
+            <input type='radio' id='third-4' className='radioButtons' value='Rayas' name='third'/>
+            <label htmlFor='third-4' className="radioLabel">Rayas</label>
+        </div>
+
+        <p className='mb-2'>¿Practicas algún deporte?</p>
+        <div className='inputContainer mb-3' onChange = {(e) => setAnswer({first: answer.first, second: answer.second, third: answer.third, fourth: e.target.value})}>
+            
+            <input type='radio' id='fourth-1' className='radioButtons' value='No practico deportes' name='fourth'/>
+            <label htmlFor='fourth-1' className="radioLabel">No practico deportes</label>
+            
+            <input type='radio' id='fourth-2' className='radioButtons' value='Practico fútbol' name='fourth'/>
+            <label htmlFor='fourth-2' className="radioLabel">Practico fútbol</label>
+            
+            <input type='radio' id='fourth-3' className='radioButtons' value='Practico basketball' name='fourth'/>
+            <label htmlFor='fourth-3' className="radioLabel">Practico basketball</label>
+            
+            <input type='radio' id='fourth-4' className='radioButtons' value='Practico yoga' name='fourth'/>
+            <label htmlFor='fourth-4' className="radioLabel">Practico yoga</label>
+        </div>
+        <div style={{display: "flex", width: "100%", justifyContent: "flex-end"}}>
+        <input type={'submit'} className='btn btn-primary px-5 me-2' disabled={able}/>
+        </div>
+    </form>
     </div>
     </div>
   )

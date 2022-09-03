@@ -1,10 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {Form, Button, FormGroup, FormControl, FormText, FormLabel} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import  {useAuthContext}  from '../contexts/authContext';
+import Geocode from "react-geocode";
+import {TiArrowBack} from "react-icons/ti";
+import { useNavigate } from 'react-router-dom';
 
 export const Profile = () => {
   const [Window, setWindow] = useState(false);
+  const {userName} = useAuthContext();
+  const [location, setLocation] = useState({lat: null, lng: null}); 
+  const [areaName, setAreaName] = useState({country: "", state: "", city: ""});
 
+ const navigate = useNavigate();
+
+/*Screensize*/
   useEffect(() => {
     function windowsWidth () {
       const { screenWidth: width, screenHeight: height } = window;
@@ -12,13 +22,60 @@ export const Profile = () => {
       if (window.innerWidth > 702) {return setWindow(false)}
       else {return setWindow(true)}
     }
-  
     
     window.addEventListener('resize', windowsWidth);
   return () => window.removeEventListener('resize', windowsWidth);
   }, [])
  
-  
+ /*GetLocation*/ 
+ Geocode.setApiKey("AIzaSyCeNc6LOuvYh6URl6ow4IPj066qhBGfrQo");
+ Geocode.setLanguage("es");
+
+ useEffect(() => {
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function showPosition(position){
+        setLocation({lat: position.coords.latitude, lng:position.coords.longitude})}, function(error) {
+        console.error("Error Code = " + error.code + " - " + error.message);
+      });
+    }
+  }
+ 
+  getLocation();
+
+  if(location.lat != null && location.lng != null){
+    Geocode.fromLatLng(`${location.lat}`, `${location.lng}`).then(
+      (response) => {
+        let city, state, country;
+        for (let i = 0; i < response.results[0].address_components.length; i++) {
+          for (let j = 0; j < response.results[0].address_components[i].types.length; j++) {
+            switch (response.results[0].address_components[i].types[j]) {
+              case "locality":
+                setAreaName({country: areaName.country, state:areaName.state, city:response.results[0].address_components[i].long_name});
+                break;
+              case "administrative_area_level_1":
+                setAreaName({country: areaName.country, state:response.results[0].address_components[i].long_name, city:areaName.city});
+                break;
+              case "country":
+                setAreaName({country: response.results[0].address_components[i].long_name, state:areaName.state, city:areaName.city});
+                break;
+            }
+          }
+        }
+console.log(areaName);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+
+}, [])
+
+
+
+
 
 
   const color = {
@@ -31,8 +88,13 @@ export const Profile = () => {
 
   return (
     <div className="container-fluid py-3" style={{background: '#0070b8'}}>
-        <div className='lrContainer mt-0' style={{width: !Window ? 'clamp(685px, 75vw, 756px)': '95vw', background: 'white' }}>
-          
+        <div className='lrContainer mt-0 position-relative' style={{width: !Window ? 'clamp(685px, 75vw, 756px)': '95vw', background: 'white' }}>
+          <button className='backButton' onClick={(e) => {
+            e.preventDefault();
+            navigate('/home');}}>
+            <TiArrowBack size={30}/>
+          </button>
+
           <div className='position-relative'> {/*profile pic and name*/}
             <div className='rounded-top' style={{background: color.black, height: '200px'}}>
 
@@ -42,7 +104,7 @@ export const Profile = () => {
             </div>
             <div className='position-absolute ' style={{top:'28%', width:'100%'}}> 
               <img style={{width:'151.2px'}} className='d-block mx-auto border border-4 border-white' src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp' alt='ProfilePic' />
-              <p className='fs-5 text-center fw-semibold mb-0'>Random Name</p>
+              <p className='fs-5 text-center fw-semibold mb-0 text-capitalize'>{userName}</p>
               <p className='fs-6 text-center fw-semibold'>Random Location</p>
             </div>
 
