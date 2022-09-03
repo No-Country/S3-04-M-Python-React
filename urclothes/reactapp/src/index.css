@@ -1,10 +1,29 @@
-body {
+body{
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+*{
+  -webkit-font-smoothing: antialiased;
+  scrollbar-width: thin;
+  scrollbar-color:auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
 
 code {
@@ -17,4 +36,47 @@ code {
   width: 80%;
   
   padding-left: 10px;
+}
+
+.radioButtons{
+  clip: rect(0,0,0,0);
+  position: absolute;
+  pointer-events: none;
+}
+
+.inputContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  row-gap: 16px;
+}
+
+.radioLabel{
+  width: 47.8%;
+  border: 1px solid #0070b8;
+  border-radius: 5px;
+  background-color: white;
+  transition: all 0.2s;
+  text-align: center;
+  color:  #0070b8;
+  font-size: 16px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.radioLabel:hover, .radioButtons:checked + .radioLabel{
+  color: white;
+  cursor: pointer;
+  background-color: #0070b8;
+}
+
+@media (max-width: 992px){
+  .inputContainer{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .radioLabel{
+    width: 95%
+  }
 }
