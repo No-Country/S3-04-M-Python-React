@@ -31,6 +31,8 @@ code {
     monospace;
 }
 
+
+/* FORM */
 .search-form{
   outline: none;
   width: 80%;
@@ -91,4 +93,11 @@ code {
   border-radius: 4px;
   background-color: red;
   color:white;
+}
+
+
+/*About Cards*/
+
+.cardBox{
+  width: 28%;
 }

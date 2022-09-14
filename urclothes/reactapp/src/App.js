@@ -9,10 +9,12 @@ import Questions from './page/preguntas';
 import {Profile} from './page/perfil'
 
 //importing Routes
-import {REGISTER, HOME, QUESTIONS, PROFILE } from './config/routes/path';
+import {REGISTER, HOME, QUESTIONS, PROFILE, ABOUT } from './config/routes/path';
 
 import PublicRoute from './components/router/PublicRouter';
 import PrivateRoute from './components/router/PrivateRoute';
+
+import { AboutUs } from './page/AboutUs';
 
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
       <Route path={HOME} element={<PrivateRoute />}>
         <Route index element={<Home />} />
         <Route path={PROFILE} element={<Profile/>} />
+        <Route path={ABOUT} element={<AboutUs/>} />
         {/* <Route Path='/perfil' element={<UserProfile />} /> */}
       </Route>
     </Routes>

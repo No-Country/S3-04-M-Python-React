@@ -3,3 +3,4 @@ export const LOGIN = '/';
 export const REGISTER = '/registro';
 export const QUESTIONS = 'preguntas';
 export const PROFILE = 'profile'
+export const ABOUT = 'about'
