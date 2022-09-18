@@ -69,7 +69,7 @@ const BtnStyle = {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3 mb-2">
               <li className="nav-item">
-                <Link className="nav-link fs-4" aria-current="page" to="#">
+                <Link className="nav-link fs-4" aria-current="page" to="/home">
                   Home
                 </Link>
               </li>

@@ -48,10 +48,10 @@ export const AboutUs = () => {
       Proin et erat sed ligula dictum consectetur eu ac ante. Nulla augue arcu, molestie vel tempor in, congue quis lacus.</p>
               
               <div className='d-flex align-items-center justify-content-between mb-4' style={{width: "20%"}} >
-              <a href={`${item.linkedin}`}> 
+              <a title='LinkedIn Profile' href={`${item.linkedin}`}> 
                 <BsLinkedin size={35} />
               </a>
-              <a href={`${item.portafolios}`}>
+              <a title='Portafolio website' href={`${item.portafolios}`}>
                 <MdWebAsset size={40}/>
               </a>
               </div>
