@@ -83,6 +83,11 @@ const BtnStyle = {
                   Perfil
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link fs-4" to="/home/about">
+                  About us
+                </Link>
+              </li>
             </ul>
             {!isAuthenticated ? null : (
               <Boton title="Logout" onClick={handleLogout} styles={BtnStyle} />

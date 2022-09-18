@@ -5,6 +5,7 @@ body{
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 *{
@@ -99,5 +100,46 @@ code {
 /*About Cards*/
 
 .cardBox{
-  width: 28%;
+  width: 32%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1%;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+              }
+
+.imgContain {
+  height: 125px;
+  background: black;
+  position:relative;
+  margin-bottom: 65px;
 }
+
+.imgContain > img {
+  margin: auto;
+  display:block;
+  position: absolute;
+  bottom: calc(15% - 62.5px);
+  right: 0;
+  left: 0;
+  width: 30%;
+  border-radius: 50%;
+}
+
+
+@media (max-width: 1200px){
+  .cardBox{
+    width: clamp(340px,48%,450px);
+  }
+
+  @media (max-width: 767px){
+  .cardBox{
+    width: 85%;
+  }
+
+  }
+
+} 
